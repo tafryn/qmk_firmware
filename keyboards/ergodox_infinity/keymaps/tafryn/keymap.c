@@ -2,6 +2,7 @@
 #include "debug.h"
 #include "action_layer.h"
 #include "version.h"
+#include "config.h"
 
 enum custom_layers {
     _QWERTY,
