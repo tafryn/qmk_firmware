@@ -4,6 +4,8 @@
 #include "version.h"
 #include "config.h"
 
+#define _______ KC_TRNS
+
 enum custom_layers {
     _QWERTY,
     _DVORAK,
