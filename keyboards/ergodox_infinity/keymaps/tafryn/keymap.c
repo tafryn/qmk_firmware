@@ -6,6 +6,13 @@
 
 #define _______ KC_TRNS
 
+#define OSM_LCTL OSM(MOD_LCTL)
+#define OSM_LALT OSM(MOD_LALT)
+#define OSM_LGUI OSM(MOD_LGUI)
+#define OSM_RCTL OSM(MOD_RCTL)
+#define OSM_RALT OSM(MOD_RALT)
+#define OSM_RGUI OSM(MOD_RGUI)
+
 enum custom_layers {
     _QWERTY,
     _DVORAK,
@@ -83,44 +90,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------.           ,--------------------------------------------.
  * |   `    |  1  |  2  |  3  |  4  |  5  | Esc  |           | Esc  |  6  |  7  |  8  |  9  |  0  |   =    |
  * |--------+-----+-----+-----+-----+------------|           |------+-----+-----+-----+-----+-----+--------|
- * |  Tab   |  '  |  ,  |  .  |  P  |  Y  |Mouse |           | Num  |  F  |  G  |  C  |  R  |  L  |   /    |
+ * |  Tab   |  '  |  ,  |  .  |  P  |  Y  |MOUSE |           | NUM  |  F  |  G  |  C  |  R  |  L  |   /    |
  * |--------+-----+-----+-----+-----+-----|      |           |      |-----+-----+-----+-----+-----+--------|
  * |  Ctrl  |  A  |  O  |  E  |  U  |  I  |------|           |------|  D  |  H  |  T  |  N  |  S  |   -    |
  * |--------+-----+-----+-----+-----+-----|  [{  |           |  ]}  |-----+-----+-----+-----+-----+--------|
  * | LShift |  ;  |  Q  |  J  |  K  |  X  |      |           |      |  B  |  M  |  W  |  V  |  Z  | RShift |
  * `--------+-----+-----+-----+-----+------------'           `------------+-----+-----+-----+-----+--------'
- *   | Home | End |PgUp |PgDn |RAISE|                                     |RAISE|Left |Down | Up  |Right |
+ *   |OSM_C |OSM_A|OSM_G|Left |Right|                                     |Down |  Up |OSM_G|OSM_A|OSM_C |
  *   `------------------------------'                                     `------------------------------'
  *                                   ,-----------.           ,------------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                              ,----|-----|-----|           |-----+-----+-----.
- *                              |    |     | Del |           |RGUI |     |     |
+ *                              |    |     |CapLk|           | Ins |     |     |
  *                              |BSPC|LGUI |-----|           |-----|Enter|Space|
  *                              |    |     |LOWER|           |LOWER|     |     |
  *                              `----------------'           `------------------'
  */
 [_DVORAK] = LAYOUT_ergodox(
   // left hand
-  KC_GRV,         KC_1,      KC_2,    KC_3,    KC_4,  KC_5, KC_ESC,
-  KC_TAB,         KC_QUOT,   KC_COMM, KC_DOT,  KC_P,  KC_Y, TG(_MOUSE),
-  KC_LCTL,        KC_A,      KC_O,    KC_E,    KC_U,  KC_I,
-  KC_LSPO,        KC_SCLN,   KC_Q,    KC_J,    KC_K,  KC_X, KC_LBRC,
-  KC_HOME,        KC_END,    KC_PGUP, KC_PGDN, RAISE,
+  KC_GRV,   KC_1,     KC_2,     KC_3,                KC_4,                KC_5, KC_ESC,
+  KC_TAB,   KC_QUOT,  KC_COMM,  KC_DOT,              KC_P,                KC_Y, TG(_MOUSE),
+  KC_LCTL,  KC_A,     KC_O,     KC_E,                KC_U,                KC_I,
+  KC_LSPO,  KC_SCLN,  KC_Q,     KC_J,                KC_K,                KC_X, KC_LBRC,
+  OSM_LCTL, OSM_LALT, OSM_LGUI, LT(_LOWER, KC_LEFT), LT(_RAISE, KC_RGHT),
 
-                                                  KC_LCTL, KC_LALT,
-                                                           KC_DEL,
-                                        KC_BSPC,  KC_LGUI, LOWER,
+                                                  KC_LCTL,        KC_LALT,
+                                                                  KC_CAPS,
+                                        KC_BSPC,  LGUI_T(KC_DEL), LOWER,
 
   // right hand
-  KC_ESC,      KC_6, KC_7,  KC_8,    KC_9,    KC_0,  KC_EQUAL,
-  TG(_NUM),    KC_F, KC_G,  KC_C,    KC_R,    KC_L,  KC_SLSH,
-               KC_D, KC_H,  KC_T,    KC_N,    KC_S,  LT(MOUSE, KC_MINS),
-  KC_RBRACKET, KC_B, KC_M,  KC_W,    KC_V,    KC_Z,  KC_RSPC,
-                     RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+  KC_ESC,      KC_6, KC_7,                KC_8,              KC_9,     KC_0,     KC_EQUAL,
+  TG(_NUM),    KC_F, KC_G,                KC_C,              KC_R,     KC_L,     KC_SLSH,
+               KC_D, KC_H,                KC_T,              KC_N,     KC_S,     LT(MOUSE, KC_MINS),
+  KC_RBRACKET, KC_B, KC_M,                KC_W,              KC_V,     KC_Z,     KC_RSPC,
+                     LT(_RAISE, KC_DOWN), LT(_LOWER, KC_UP), OSM_RGUI, OSM_RALT, OSM_RCTL,
 
   KC_RALT, KC_RCTL,
-  KC_RGUI,
-  LOWER,   KC_ENT,  KC_SPACE
+  KC_INS,
+  LOWER,   LT(_RAISE, KC_ENT), KC_SPACE
 ),
 
 /* Keymap 2: Basic Workman layer
