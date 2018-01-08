@@ -2,7 +2,6 @@
 #include "debug.h"
 #include "action_layer.h"
 #include "version.h"
-#include "config.h"
 
 #define _______ KC_TRNS
 
