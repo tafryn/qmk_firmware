@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // left hand
   KC_GESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5, KC_ESC,
   KC_TAB,   KC_QUOT,  KC_COMM,  KC_DOT,  KC_P,    KC_Y, TG(_MOUSE),
-  KC_LCTL,  KC_A,     KC_O,     KC_E,    KC_U,    KC_I,
+  CTL_T(KC_ESC),  KC_A,     KC_O,     KC_E,    KC_U,    KC_I,
   KC_LSPO,  KC_SCLN,  KC_Q,     KC_J,    KC_K,    KC_X, KC_LBRC,
   OSM_LCTL, OSM_LALT, OSM_LGUI, KC_LEFT, KC_RGHT,
 
@@ -122,7 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // right hand
   KC_ESC,      KC_6, KC_7,    KC_8,  KC_9,     KC_0,     LT(_ADJUST, KC_EQUAL),
   TG(_NUM),    KC_F, KC_G,    KC_C,  KC_R,     KC_L,     KC_SLSH,
-               KC_D, KC_H,    KC_T,  KC_N,     KC_S,     LT(_MOUSE, KC_MINS),
+               KC_D, KC_H,    KC_T,  KC_N,     KC_S,     KC_MINS,
   KC_RBRACKET, KC_B, KC_M,    KC_W,  KC_V,     KC_Z,     KC_RSPC,
                      KC_DOWN, KC_UP, OSM_RGUI, OSM_RALT, OSM_RCTL,
 
