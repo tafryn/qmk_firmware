@@ -37,7 +37,8 @@ enum custom_keycodes {
     RAISE,
     EPRM,
     VRSN,
-    RGB_SLD
+    RGB_SLD,
+    ALL_OFF
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -57,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,-----------.           ,-----------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC | Del |CapLk|           | Ins |Enter|Space|
+ *                             |BSPC | Del |CapLk|           |A_OFF|Enter|Space|
  *                             |     |     |-----|           |-----|     |     |
  *                             |LOWER|LGUI |RAISE|           |LOWER|LOWER|RAISE|
  *                             `-----------------'           `-----------------'
@@ -82,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_DOWN, KC_UP,   OSM_RGUI, OSM_RALT,            OSM_RCTL,
 
   KC_RALT, KC_RCTL,
-  KC_INS,
+  ALL_OFF,
   LOWER,   LT(_LOWER, KC_ENT), LT(_RAISE, KC_SPACE)
 ),
 
@@ -102,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,-----------.           ,-----------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC | Del |CapLk|           | Ins |Enter|Space|
+ *                             |BSPC | Del |CapLk|           |A_OFF|Enter|Space|
  *                             |     |     |-----|           |-----|     |     |
  *                             |LOWER|LGUI |RAISE|           |LOWER|LOWER|RAISE|
  *                             `-----------------'           `-----------------'
@@ -127,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_DOWN, KC_UP, OSM_RGUI, OSM_RALT, OSM_RCTL,
 
   KC_RALT, KC_RCTL,
-  KC_INS,
+  ALL_OFF,
   LOWER,   LT(_LOWER, KC_ENT), LT(_RAISE, KC_SPACE)
 ),
 
@@ -147,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,-----------.           ,-----------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC | Del |CapLk|           | Ins |Enter|Space|
+ *                             |BSPC | Del |CapLk|           |A_OFF|Enter|Space|
  *                             |     |     |-----|           |-----|     |     |
  *                             |LOWER|LGUI |RAISE|           |LOWER|LOWER|RAISE|
  *                             `-----------------'           `-----------------'
@@ -172,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_DOWN, KC_UP,   OSM_RGUI, OSM_RALT, OSM_RCTL,
 
   KC_RALT, KC_RCTL,
-  KC_INS,
+  ALL_OFF,
   LOWER,   LT(_LOWER, KC_ENT), LT(_RAISE, KC_SPACE)
 ),
 
@@ -192,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,-----------.           ,-----------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC | Del |CapLk|           | Ins |Enter|Space|
+ *                             |BSPC | Del |CapLk|           |A_OFF|Enter|Space|
  *                             |     |     |-----|           |-----|     |     |
  *                             |LOWER|LGUI |RAISE|           |LOWER|LOWER|RAISE|
  *                             `-----------------'           `-----------------'
@@ -217,7 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_DOWN, KC_UP,   OSM_RGUI, OSM_RALT,            OSM_RCTL,
 
   KC_RALT, KC_RCTL,
-  KC_INS,
+  ALL_OFF,
   LOWER,   LT(_LOWER, KC_ENT), LT(_RAISE, KC_SPACE)
 ),
 
@@ -271,11 +272,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------.           ,--------------------------------------------------.
  * |         |  F1  |  F2  |  F3  |  F4  |  F5  | F11  |           | F12  |  F6  |  F7  |  F8  |  F9  | F10  |        |
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |         |PrScr |      |CPgUp |      | Del  |      |           |      |      |      |      |      |      |        |
+ * |         |PrScr |      |CPgUp |      | Del  |      |           |      |      |      |      |      |C-A-D |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |ScrLk | Back |CPgDn | Fwd  |      |------|           |------| Left | Down |  Up  |Right |      |        |
+ * |         |ScrLk | Back |CPgDn | Fwd  | Ins  |------|           |------| Left | Down |  Up  |Right |      |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |Pause |      |      |      |      |      |           |      | Home | PgDn | PgUp | End  |      |        |
+ * |         |Pause |      |      |      | App  |      |           |      | Home | PgDn | PgUp | End  |      |        |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |       |      |      |      |      |                                       |      |      |      |      |      |
  *   `-----------------------------------'                                       `----------------------------------'
@@ -289,10 +290,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_ergodox(
   // left hand
-  _______, KC_F1,   KC_F2,   KC_F3,         KC_F4,   KC_F5,   KC_F11,
-  _______, KC_PSCR, _______, LCTL(KC_PGUP), _______, KC_DEL,  _______,
-  _______, KC_SLCK, KC_WBAK, LCTL(KC_PGDN), KC_WFWD, _______,
-  _______, KC_PAUS, _______, _______,       _______, _______, _______,
+  _______, KC_F1,   KC_F2,   KC_F3,         KC_F4,   KC_F5,  KC_F11,
+  _______, KC_PSCR, _______, LCTL(KC_PGUP), _______, KC_DEL, _______,
+  _______, KC_SLCK, KC_WBAK, LCTL(KC_PGDN), KC_WFWD, KC_INS,
+  _______, KC_PAUS, _______, _______,       _______, KC_APP, _______,
   _______, _______, _______, _______,       _______,
 
                                                _______, _______,
@@ -300,11 +301,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       _______, _______, _______,
 
   // right hand
-  KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
-  _______, _______, _______, _______, _______, _______, _______,
-           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,  _______,
-  _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
-                    _______, _______, _______, _______, _______,
+  KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,      _______,
+  _______, _______, _______, _______, _______, LCA(KC_DEL), _______,
+           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,     _______,
+  _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,     _______,
+                    _______, _______, _______, _______,     _______,
 
   _______, _______,
   _______,
@@ -593,6 +594,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif
       }
       return false;
+      break;
+    case ALL_OFF:
+      layer_off(_GAME);
+      layer_off(_MOUSE);
+      layer_off(_NUM);
+      layer_off(_LOWER);
+      layer_off(_RAISE);
+      layer_off(_ADJUST);
       break;
   }
   return true;
