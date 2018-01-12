@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,-----------.           ,-----------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC | Del |CapLk|           |A_OFF|Enter|Space|
+ *                             |BSPC | Del |Lock |           |A_OFF|Enter|Space|
  *                             |     |     |-----|           |-----|     |     |
  *                             |LOWER|LGUI |RAISE|           |LOWER|LOWER|RAISE|
  *                             `-----------------'           `-----------------'
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   OSM_LCTL, OSM_LALT, OSM_LGUI, KC_LEFT, KC_RGHT,
 
                                                   KC_LCTL,        KC_LALT,
-                                                                  KC_CAPS,
+                                                                  KC_LOCK,
                             LT(_LOWER, KC_BSPC),  LGUI_T(KC_DEL), RAISE,
 
   // right hand
@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,-----------.           ,-----------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC | Del |CapLk|           |A_OFF|Enter|Space|
+ *                             |BSPC | Del |Lock |           |A_OFF|Enter|Space|
  *                             |     |     |-----|           |-----|     |     |
  *                             |LOWER|LGUI |RAISE|           |LOWER|LOWER|RAISE|
  *                             `-----------------'           `-----------------'
@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   OSM_LCTL,      OSM_LALT, OSM_LGUI, KC_LEFT, KC_RGHT,
 
                                                   KC_LCTL,        KC_LALT,
-                                                                  KC_CAPS,
+                                                                  KC_LOCK,
                             LT(_LOWER, KC_BSPC),  LGUI_T(KC_DEL), RAISE,
 
   // right hand
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,-----------.           ,-----------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC | Del |CapLk|           |A_OFF|Enter|Space|
+ *                             |BSPC | Del |Lock |           |A_OFF|Enter|Space|
  *                             |     |     |-----|           |-----|     |     |
  *                             |LOWER|LGUI |RAISE|           |LOWER|LOWER|RAISE|
  *                             `-----------------'           `-----------------'
@@ -162,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   OSM_LCTL,      OSM_LALT, OSM_LGUI, KC_LEFT, KC_RGHT,
 
                                                   KC_LCTL,        KC_LALT,
-                                                                  KC_CAPS,
+                                                                  KC_LOCK,
                             LT(_LOWER, KC_BSPC),  LGUI_T(KC_DEL), RAISE,
 
   // right hand
@@ -193,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,-----------.           ,-----------.
  *                                   |Ctrl | Alt |           | Alt |Ctrl |
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC | Del |CapLk|           |A_OFF|Enter|Space|
+ *                             |BSPC | Del |Lock |           |A_OFF|Enter|Space|
  *                             |     |     |-----|           |-----|     |     |
  *                             |LOWER|LGUI |RAISE|           |LOWER|LOWER|RAISE|
  *                             `-----------------'           `-----------------'
@@ -207,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   OSM_LCTL,      OSM_LALT, OSM_LGUI, KC_LEFT, KC_RGHT,
 
                                                   KC_LCTL,        KC_LALT,
-                                                                  KC_CAPS,
+                                                                  KC_LOCK,
                             LT(_LOWER, KC_BSPC),  LGUI_T(KC_DEL), RAISE,
 
   // right hand
