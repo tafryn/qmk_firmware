@@ -596,12 +596,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
       break;
     case ALL_OFF:
-      layer_off(_GAME);
-      layer_off(_MOUSE);
-      layer_off(_NUM);
-      layer_off(_LOWER);
-      layer_off(_RAISE);
-      layer_off(_ADJUST);
+      layer_clear();
+      return false;
       break;
   }
   return true;
