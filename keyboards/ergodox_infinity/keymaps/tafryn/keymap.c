@@ -650,16 +650,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         if (IS_LAYER_ON(_GAMECHAT)) {
           layer_clear();
-          add_key(KC_ENT);
           layer_on(_GAME);
+          add_key(KC_ENT);
+          send_keyboard_report();
+          del_key(KC_ENT);
+          send_keyboard_report();
         }
         else {
           layer_clear();
-          add_key(KC_ENT);
           layer_on(_GAMECHAT);
+          add_key(KC_ENT);
+          send_keyboard_report();
+          del_key(KC_ENT);
+          send_keyboard_report();
         }
       }
-      return true;
+      return false;
       break;
   }
   return true;
