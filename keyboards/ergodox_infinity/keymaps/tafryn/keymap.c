@@ -339,7 +339,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // left hand
   VRSN,    _______, _______, _______, _______, _______, RESET,
   _______, _______, _______, _______, _______, _______, _______,
-  _______, BL_TOGG, BL_STEP, BL_DEC,  BL_INC,  AG_NORM,
+  _______, BL_TOGG, BL_STEP, BL_DEC,  BL_INC,  _______,
   _______, _______, _______, BL_OFF,  BL_ON,   _______, _______,
   _______, _______, _______, _______, _______,
 
