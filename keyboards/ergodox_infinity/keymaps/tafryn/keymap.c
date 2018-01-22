@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Basic Dvorak layer
  *
  * ,---------------------------------------------.           ,--------------------------------------------.
- * |Esc (`) |  1  |  2  |  3  |  4  |  5  | Esc  |           | Esc  |  6  |  7  |  8  |  9  |  0  |=(ADJST)|
+ * |Esc (`) |  1  |  2  |  3  |  4  |  5  | Esc  |           | Esc  |  6  |  7  |  8  |  9  |  0  |   =    |
  * |--------+-----+-----+-----+-----+------------|           |------+-----+-----+-----+-----+-----+--------|
  * |  Tab   |  '  |  ,  |  .  |  P  |  Y  |MOUSE |           | NUM  |  F  |  G  |  C  |  R  |  L  |   /    |
  * |--------+-----+-----+-----+-----+-----|      |           |      |-----+-----+-----+-----+-----+--------|
@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             LT(_LOWER, KC_BSPC),  LGUI_T(KC_DEL), RAISE,
 
   // right hand
-  KC_ESC,   KC_6, KC_7,    KC_8,  KC_9,     KC_0,     LT(_ADJUST, KC_EQUAL),
+  KC_ESC,   KC_6, KC_7,    KC_8,  KC_9,     KC_0,     KC_EQUAL,
   TG(_NUM), KC_F, KC_G,    KC_C,  KC_R,     KC_L,     KC_SLSH,
             KC_D, KC_H,    KC_T,  KC_N,     KC_S,     KC_MINS,
   KC_RBRC,  KC_B, KC_M,    KC_W,  KC_V,     KC_Z,     KC_RSPC,
