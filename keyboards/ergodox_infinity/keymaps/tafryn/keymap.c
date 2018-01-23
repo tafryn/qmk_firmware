@@ -78,11 +78,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             LT(_LOWER, KC_BSPC),  LGUI_T(KC_DEL), RAISE,
 
   // right hand
-  KC_ESC,   KC_6, KC_7,    KC_8,    KC_9,     KC_0,                KC_EQUAL,
-  TG(_NUM), KC_Y, KC_U,    KC_I,    KC_O,     KC_P,                KC_BSPACE,
-            KC_H, KC_J,    KC_K,    KC_L,     KC_SCOLON,           KC_QUOTE,
-  KC_RBRC,  KC_N, KC_M,    KC_COMM, KC_DOT,   LT(_MOUSE, KC_SLSH), KC_RSPC,
-                  KC_DOWN, KC_UP,   OSM_RGUI, OSM_RALT,            OSM_RCTL,
+  KC_ESC,   KC_6, KC_7,    KC_8,    KC_9,     KC_0,      KC_EQUAL,
+  TG(_NUM), KC_Y, KC_U,    KC_I,    KC_O,     KC_P,      KC_BSPACE,
+            KC_H, KC_J,    KC_K,    KC_L,     KC_SCOLON, KC_QUOTE,
+  KC_RBRC,  KC_N, KC_M,    KC_COMM, KC_DOT,   KC_SLSH,   KC_RSPC,
+                  KC_DOWN, KC_UP,   OSM_RGUI, OSM_RALT,  OSM_RCTL,
 
   KC_RALT, KC_RCTL,
   ALL_OFF,
@@ -213,11 +213,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             LT(_LOWER, KC_BSPC),  LGUI_T(KC_DEL), RAISE,
 
   // right hand
-  KC_ESC,   KC_6, KC_7,    KC_8,    KC_9,     KC_0,                KC_EQUAL,
-  TG(_NUM), KC_J, KC_F,    KC_U,    KC_P,     KC_SCOLON,           KC_BSPACE,
-            KC_Y, KC_N,    KC_E,    KC_O,     KC_I,                KC_QUOTE,
-  KC_RBRC,  KC_K, KC_L,    KC_COMM, KC_DOT,   LT(_MOUSE, KC_SLSH), KC_RSPC,
-                  KC_DOWN, KC_UP,   OSM_RGUI, OSM_RALT,            OSM_RCTL,
+  KC_ESC,   KC_6, KC_7,    KC_8,    KC_9,     KC_0,      KC_EQUAL,
+  TG(_NUM), KC_J, KC_F,    KC_U,    KC_P,     KC_SCOLON, KC_BSPACE,
+            KC_Y, KC_N,    KC_E,    KC_O,     KC_I,      KC_QUOTE,
+  KC_RBRC,  KC_K, KC_L,    KC_COMM, KC_DOT,   KC_SLSH,   KC_RSPC,
+                  KC_DOWN, KC_UP,   OSM_RGUI, OSM_RALT,  OSM_RCTL,
 
   KC_RALT, KC_RCTL,
   ALL_OFF,
