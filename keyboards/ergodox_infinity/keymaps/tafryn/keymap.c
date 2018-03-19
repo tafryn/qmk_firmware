@@ -2,6 +2,7 @@
 #include "debug.h"
 #include "action_layer.h"
 #include "version.h"
+#include "./visualizer.h"
 
 #define _______ KC_TRNS
 
@@ -40,7 +41,9 @@ enum custom_keycodes {
     VRSN,
     RGB_SLD,
     ALL_OFF,
-    GAMECHAT
+    GAMECHAT,
+    KVMSWP1,
+    KVMSWP2
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -92,46 +95,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Basic Dvorak layer
  *
  * ,---------------------------------------------.           ,--------------------------------------------.
- * |  Esc   |  1  |  2  |  3  |  4  |  5  | Esc  |           |Esc(`)|  6  |  7  |  8  |  9  |  0  |   =    |
+ * |  Esc   |  1  |  2  |  3  |  4  |  5  |  `   |           |  =   |  6  |  7  |  8  |  9  |  0  |   \    |
  * |--------+-----+-----+-----+-----+------------|           |------+-----+-----+-----+-----+-----+--------|
- * |  Tab   |  '  |  ,  |  .  |  P  |  Y  |MOUSE |           | NUM  |  F  |  G  |  C  |  R  |  L  |   /    |
+ * |  Tab   |  '  |  ,  |  .  |  P  |  Y  | Del  |           | NUM  |  F  |  G  |  C  |  R  |  L  |   /    |
  * |--------+-----+-----+-----+-----+-----|      |           |      |-----+-----+-----+-----+-----+--------|
  * |  Ctrl  |  A  |  O  |  E  |  U  |  I  |------|           |------|  D  |  H  |  T  |  N  |  S  |   -    |
  * |--------+-----+-----+-----+-----+-----|  [{  |           |  ]}  |-----+-----+-----+-----+-----+--------|
- * | LShift |  ;  |  Q  |  J  |  K  |  X  |      |           |      |  B  |  M  |  W  |  V  |  Z  | RShift |
+ * | LShift |  ;  |  Q  |  J  |  K  |  X  |MOUSE |           |MOUSE |  B  |  M  |  W  |  V  |  Z  | RShift |
  * `--------+-----+-----+-----+-----+------------'           `------------+-----+-----+-----+-----+--------'
- *   |OSM_C |OSM_A|OSM_G|Left |Right|                                     |Down |  Up |OSM_G|OSM_A|OSM_C |
+ *   | Home |PgDn |PgUp | End |LOWER|                                     |RAISE|Left |Down |Up   |Right |
  *   `------------------------------'                                     `------------------------------'
  *                                   ,-----------.           ,-----------.
- *                                   |Ctrl | Alt |           | Alt |Ctrl |
+ *                                   |OSM_C|OSM_A|           |OSM_A|OSM_C|
  *                             ,-----|-----|-----|           |-----+-----+-----.
- *                             |BSPC |     |Lock |           |A_OFF|     |Space|
- *                             |     |LGUI |-----|           |-----|Enter|     |
- *                             |LOWER|     |RAISE|           |LOWER|     |RAISE|
+ *                             |     |     |Lock |           |A_OFF|     |     |
+ *                             |BSPC |LGUI |-----|           |-----|Enter|Space|
+ *                             |     |     |RAISE|           |LOWER|     |     |
  *                             `-----------------'           `-----------------'
  */
 [_DVORAK] = LAYOUT_ergodox(
   // left hand
-  KC_ESC,   KC_1,     KC_2,     KC_3,    KC_4,    KC_5, KC_ESC,
-  KC_TAB,   KC_QUOT,  KC_COMM,  KC_DOT,  KC_P,    KC_Y, TG(_MOUSE),
+  KC_ESC,   KC_1,     KC_2,     KC_3,    KC_4,    KC_5, KC_GRV,
+  KC_TAB,   KC_QUOT,  KC_COMM,  KC_DOT,  KC_P,    KC_Y, KC_DEL,
   KC_LCTL,  KC_A,     KC_O,     KC_E,    KC_U,    KC_I,
-  KC_LSPO,  KC_SCLN,  KC_Q,     KC_J,    KC_K,    KC_X, KC_LBRC,
-  OSM_LCTL, OSM_LALT, OSM_LGUI, KC_LEFT, KC_RGHT,
+  KC_LSPO,  KC_SCLN,  KC_Q,     KC_J,    KC_K,    KC_X, LT(_MOUSE, KC_LBRC),
+  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,  LOWER,
 
-                                                  KC_LCTL, KC_LALT,
+                                                 OSM_LCTL, OSM_LALT,
                                                            KC_LOCK,
-                            LT(_LOWER, KC_BSPC),  KC_LGUI, RAISE,
+                                        KC_BSPC, KC_LGUI,  TT(_RAISE),
 
   // right hand
-  KC_GESC,  KC_6, KC_7,    KC_8,  KC_9,     KC_0,     KC_EQUAL,
-  TG(_NUM), KC_F, KC_G,    KC_C,  KC_R,     KC_L,     KC_SLSH,
-            KC_D, KC_H,    KC_T,  KC_N,     KC_S,     KC_MINS,
-  KC_RBRC,  KC_B, KC_M,    KC_W,  KC_V,     KC_Z,     KC_RSPC,
-                  KC_DOWN, KC_UP, OSM_RGUI, OSM_RALT, OSM_RCTL,
+  KC_EQUAL,             KC_6, KC_7,  KC_8,    KC_9,     KC_0,  KC_BSLS,
+  TG(_NUM),             KC_F, KC_G,  KC_C,    KC_R,     KC_L,  KC_SLSH,
+                        KC_D, KC_H,  KC_T,    KC_N,     KC_S,  KC_MINS,
+  LT(_MOUSE, KC_RBRC),  KC_B, KC_M,  KC_W,    KC_V,     KC_Z,  KC_RSPC,
+                              RAISE, KC_LEFT, KC_DOWN,  KC_UP, KC_RGHT,
 
-  KC_RALT, KC_RCTL,
+  OSM_RALT,   OSM_RCTL,
   ALL_OFF,
-  LOWER,   KC_ENT,  LT(_RAISE, KC_SPACE)
+  TT(_LOWER), KC_ENT,   KC_SPACE
 ),
 
 /* Keymap 2: Basic Colemak layer
@@ -229,11 +232,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------.           ,--------------------------------------------------.
  * |         |  F1  |  F2  |  F3  |  F4  |  F5  | F11  |           | F12  |  F6  |  F7  |  F8  |  F9  | F10  |        |
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |         |  !   |  @   |  #   |  $   |  %   |      |           |      |  ^   |  &   |  *   |  (   |  )   |   \    |
+ * |         |  !   |  @   |  #   |  $   |  %   |      |           |      |  ^   |  &   |  *   |  (   |  )   |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |         |  1   |  2   |  3   |  4   |  5   |------|           |------|  6   |  7   |  8   |  9   |  0   |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |  6   |  7   |  8   |  9   |  0   |      |           |      |  ~   |  \   |  |   |  {   |  }   |        |
+ * |         |  6   |  7   |  8   |  9   |  0   |      |           |      |  =   |  [   |  ]   |  {   |  }   |        |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |       |      |      |      |      |                                       |      |      |      |      |      |
  *   `-----------------------------------'                                       `----------------------------------'
@@ -259,9 +262,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // right hand
   KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
-  _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
+  _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-  _______, KC_TILD, KC_BSLS, KC_PIPE, KC_LCBR, KC_RCBR, _______,
+  _______, KC_EQL,  KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, _______,
                     _______, _______, _______, _______, _______,
 
   _______, _______,
@@ -276,9 +279,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
  * |         |PrScr |      |CPgUp |      | App  |      |           |      |      |      |CapsLk|      |C-A-D |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |ScrLk | Back |CPgDn | Fwd  | Ins  |------|           |------| Left | Down |  Up  |Right |      |        |
+ * |         |ScrLk | Back |CPgDn | Fwd  | Ins  |------|           |------| Left | Down |  Up  |Right |KVMSW1|        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |Pause |      |      | Del  |      |      |           |      | Home | PgDn | PgUp | End  |      |        |
+ * |         |Pause |      |      |      |      |      |           |      | Home | PgDn | PgUp | End  |KVMSW2|        |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |       |      |      |      |      |                                       |      |      |      |      |      |
  *   `-----------------------------------'                                       `----------------------------------'
@@ -295,7 +298,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_F1,   KC_F2,   KC_F3,         KC_F4,   KC_F5,   KC_F11,
   _______, KC_PSCR, _______, LCTL(KC_PGUP), _______, KC_APP,  _______,
   _______, KC_SLCK, KC_WBAK, LCTL(KC_PGDN), KC_WFWD, KC_INS,
-  _______, KC_PAUS, _______, _______,       KC_DEL,  _______, _______,
+  _______, KC_PAUS, _______, _______,       _______,  _______, _______,
   _______, _______, _______, _______,       _______,
 
                                                _______, _______,
@@ -305,8 +308,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // right hand
   KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,      _______,
   _______, _______, _______, KC_CAPS, _______, LCA(KC_DEL), _______,
-           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,     _______,
-  _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,     _______,
+           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KVMSWP1,     _______,
+  _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KVMSWP2,     _______,
                     _______, _______, _______, _______,     _______,
 
   _______, _______,
@@ -317,11 +320,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 6: Adjust
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |Version |      |      |      |      |      |Reset |           |Reset |      |      |      |      |      |        |
+ * |Version |      |      |      |AG Nrm|AG Swp|Reset |           |Reset |TRM on|TRMoff|      | EPRM |Debug |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      |      |      |AG Swp|      |           |      |TRM on|      |      | EPRM |Debug |        |
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |BlTogg|BlStep|BlDec |BlInc |AG Nrm|------|           |------|TRMoff|QWERTY|DVORAK|COLEMK|WRKMAN|        |
+ * |        |BlTogg|BlStep|BlDec |BlInc |      |------|           |------|      |QWERTY|DVORAK|COLEMK|WRKMAN|        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |      |BlOff |BlOn  |      |      |           |      | GAME |MOUSE | NUM  |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -337,9 +340,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_ergodox(
   // left hand
-  VRSN,    _______, _______, _______, _______, _______, RESET,
-  _______, _______, _______, _______, _______, AG_SWAP, _______,
-  _______, BL_TOGG, BL_STEP, BL_DEC,  BL_INC,  AG_NORM,
+  VRSN,    _______, _______, _______, AG_NORM, AG_SWAP, RESET,
+  _______, _______, _______, _______, _______, _______, _______,
+  _______, BL_TOGG, BL_STEP, BL_DEC,  BL_INC,  _______,
   _______, _______, _______, BL_OFF,  BL_ON,   _______, _______,
   _______, _______, _______, _______, _______,
 
@@ -348,11 +351,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       _______, _______, _______,
 
   // right hand
-  RESET,   _______,  _______, _______,  _______, _______, _______,
-  _______, TERM_ON,  _______, _______, EPRM,    DEBUG,   _______,
-           TERM_OFF, QWERTY,  DVORAK,   COLEMAK, WORKMAN, _______,
-  _______, _______,  _______, _______,  _______, _______, _______,
-                     _______, _______,  _______, _______, _______,
+  RESET,   TERM_ON,   TERM_OFF,   _______,  EPRM,    DEBUG,   _______,
+  _______, _______,   _______,    _______,  _______, _______, _______,
+           _______,   QWERTY,     DVORAK,   COLEMAK, WORKMAN, _______,
+  _______, TO(_GAME), TO(_MOUSE), TO(_NUM), _______, _______, _______,
+                      _______,    _______,  _______, _______, _______,
 
   _______, _______,
   _______,
@@ -367,8 +370,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |        |      | Rclk | MsUp | Lclk |Wh Up |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |MsLeft|MsDown|MsRght|Wh Dn |------|           |------| Prev |VolDn |VolUp | Next | Play |        |
- * |--------+------+------+------+------+------| Game |           | Game |------+------+------+------+------+--------|
- * |        |      |WhLeft| Mclk |WhRght|      |      |           |      |      |      |      | Mute |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |WhLeft| Mclk |WhRght|      |      |           |      |      | Mute |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -386,7 +389,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______,
   _______, _______, KC_BTN2, KC_MS_U, KC_BTN1, KC_WH_U, _______,
   _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,
-  _______, _______, KC_WH_L, KC_BTN3, KC_WH_R, _______, TO(_GAME),
+  _______, _______, KC_WH_L, KC_BTN3, KC_WH_R, _______, _______,
   _______, _______, _______, _______, _______,
 
                                        _______, _______,
@@ -394,11 +397,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                               KC_BTN1, KC_BTN2, KC_WH_D,
 
   // right hand
-  _______,   _______, _______, _______, _______, _______, _______,
-  _______,   _______, _______, _______, _______, _______, _______,
-             KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
-  TO(_GAME), _______, _______, _______, KC_MUTE, _______, _______,
-                      _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______,
+           KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
+  _______, _______, KC_MUTE, _______, _______, _______, _______,
+                    _______, _______, _______, _______, _______,
 
   _______, _______,
   _______,
@@ -416,27 +419,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| Alt  |           |      |------+------+------+------+------+--------|
  * |   F3   |Shift |  Z   |  X   |  C   |  V   |      |           |      |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |  O   |  P   |  I   |  Y   |  H   |                                       |      |      |      |      |      |
+ *   |  O   |  P   |  I   |  Y   |LOWER |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                      ,-------------.           ,-------------.
  *                                      | Ctrl |  B   |           |      |      |
  *                               ,------|------|------|           |------+------+------.
  *                               |      |      | Lock |           |      |      |      |
- *                               |Space |LOWER |------|           |------|GMCHAT|      |
+ *                               |Space |  H   |------|           |------|GMCHAT|      |
  *                               |      |      |  M   |           |      |      |      |
  *                               `--------------------'           `--------------------'
  */
 [_GAME] = LAYOUT_ergodox(
   // left hand
-  KC_ESC, KC_GRV,  KC_1, KC_2, KC_3, KC_4, KC_5,
-  KC_F1,  KC_TAB,  KC_Q, KC_W, KC_E, KC_R, KC_T,
-  KC_F2,  KC_G,    KC_A, KC_S, KC_D, KC_F,
-  KC_F3,  KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_LALT,
-  KC_O,   KC_P,    KC_I, KC_Y, KC_H,
+  KC_ESC, KC_GRV,  KC_1, KC_2, KC_3,     KC_4, KC_5,
+  KC_F1,  KC_TAB,  KC_Q, KC_W, KC_E,     KC_R, KC_T,
+  KC_F2,  KC_G,    KC_A, KC_S, KC_D,     KC_F,
+  KC_F3,  KC_LSFT, KC_Z, KC_X, KC_C,     KC_V, KC_LALT,
+  KC_O,   KC_P,    KC_I, KC_Y, LOWER,
 
                                                   KC_LCTL, KC_B,
                                                            KC_LOCK,
-                                        KC_SPACE, LOWER,   KC_M,
+                                        KC_SPACE, KC_H,    KC_M,
 
   // right hand
   _______, _______, _______, _______, _______, _______, _______,
@@ -548,15 +551,15 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
   // MACRODOWN only works in this function
   switch(id) {
     case 0:
-    if (record->event.pressed) {
-      SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
-    }
-    break;
+      if (record->event.pressed) {
+        SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+      }
+      break;
     case 1:
-    if (record->event.pressed) { // For resetting EEPROM
-      eeconfig_init();
-    }
-    break;
+      if (record->event.pressed) { // For resetting EEPROM
+        eeconfig_init();
+      }
+      break;
   }
   return MACRO_NONE;
 };
@@ -651,19 +654,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (IS_LAYER_ON(_GAMECHAT)) {
           layer_clear();
           layer_on(_GAME);
-          add_key(KC_ENT);
-          send_keyboard_report();
-          del_key(KC_ENT);
-          send_keyboard_report();
+          SEND_STRING(SS_TAP(X_ENTER));
         }
         else {
           layer_clear();
           layer_on(_GAMECHAT);
-          add_key(KC_ENT);
-          send_keyboard_report();
-          del_key(KC_ENT);
-          send_keyboard_report();
+          SEND_STRING(SS_TAP(X_ENTER));
         }
+      }
+      return false;
+      break;
+    case KVMSWP1:
+      if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_LCTRL)SS_TAP(X_LCTRL)"1");
+      }
+      return false;
+      break;
+    case KVMSWP2:
+      if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_LCTRL)SS_TAP(X_LCTRL)"2");
       }
       return false;
       break;
@@ -685,19 +694,19 @@ void matrix_scan_user(void) {
   uint8_t layer = biton32(layer_state);
 
   ergodox_board_led_off();
-  ergodox_right_led_1_off();
-  ergodox_right_led_2_off();
-  ergodox_right_led_3_off();
+  ergodox_led_lower_off();
+  ergodox_led_raise_off();
+  ergodox_led_adjust_off();
 
   switch (layer) {
     case _LOWER:
-      ergodox_right_led_1_on();
+      ergodox_led_lower_on();
       break;
     case _RAISE:
-      ergodox_right_led_2_on();
+      ergodox_led_raise_on();
       break;
     case _ADJUST:
-      ergodox_right_led_3_on();
+      ergodox_led_adjust_on();
       break;
   }
 };

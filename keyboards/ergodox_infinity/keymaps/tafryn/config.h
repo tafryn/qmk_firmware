@@ -1,6 +1,14 @@
+#ifndef CONFIG_USER_H
+#define CONFIG_USER_H
+
 #define PERMISSIVE_HOLD
 
 #undef TAPPING_TERM
 #define TAPPING_TERM 300
 
+#undef TAPPING_TOGGLE
+#define TAPPING_TOGGLE 2
+
 #undef IGNORE_MOD_TAP_INTERRUPT
+
+#endif /* ifndef CONFIG_USER_H */
