@@ -103,10 +103,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+-----+-----+-----+-----+-----|  [{  |           |  ]}  |-----+-----+-----+-----+-----+--------|
  * | LShift |  ;  |  Q  |  J  |  K  |  X  |MOUSE |           |MOUSE |  B  |  M  |  W  |  V  |  Z  | RShift |
  * `--------+-----+-----+-----+-----+------------'           `------------+-----+-----+-----+-----+--------'
- *   | Home |PgDn |PgUp | End |LOWER|                                     |RAISE|Left |Down |Up   |Right |
+ *   |OSM_C |OSM_A|Left |Right|LOWER|                                     |RAISE|Down | Up  | Alt | Ctrl |
  *   `------------------------------'                                     `------------------------------'
  *                                   ,-----------.           ,-----------.
- *                                   |OSM_C|OSM_A|           |OSM_A|OSM_C|
+ *                                   |Home | End |           |PgDn |PgUp |
  *                             ,-----|-----|-----|           |-----+-----+-----.
  *                             |     |     |Lock |           |A_OFF|     |     |
  *                             |BSPC |LGUI |-----|           |-----|Enter|Space|
@@ -115,24 +115,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_DVORAK] = LAYOUT_ergodox(
   // left hand
-  KC_ESC,   KC_1,     KC_2,     KC_3,    KC_4,    KC_5, KC_GRV,
-  KC_TAB,   KC_QUOT,  KC_COMM,  KC_DOT,  KC_P,    KC_Y, KC_DEL,
-  KC_LCTL,  KC_A,     KC_O,     KC_E,    KC_U,    KC_I,
-  KC_LSPO,  KC_SCLN,  KC_Q,     KC_J,    KC_K,    KC_X, LT(_MOUSE, KC_LBRC),
-  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,  LOWER,
+  KC_ESC,   KC_1,     KC_2,    KC_3,     KC_4,  KC_5, KC_GRV,
+  KC_TAB,   KC_QUOT,  KC_COMM, KC_DOT,   KC_P,  KC_Y, KC_DEL,
+  KC_LCTL,  KC_A,     KC_O,    KC_E,     KC_U,  KC_I,
+  KC_LSPO,  KC_SCLN,  KC_Q,    KC_J,     KC_K,  KC_X, LT(_MOUSE, KC_LBRC),
+  OSM_LCTL, OSM_LALT, KC_LEFT, KC_RIGHT, LOWER,
 
-                                                 OSM_LCTL, OSM_LALT,
-                                                           KC_LOCK,
-                                        KC_BSPC, KC_LGUI,  TT(_RAISE),
+                                                KC_HOME, KC_END,
+                                                         KC_LOCK,
+                                       KC_BSPC, KC_LGUI, TT(_RAISE),
 
   // right hand
-  KC_EQUAL,             KC_6, KC_7,  KC_8,    KC_9,     KC_0,  KC_BSLS,
-  TG(_NUM),             KC_F, KC_G,  KC_C,    KC_R,     KC_L,  KC_SLSH,
-                        KC_D, KC_H,  KC_T,    KC_N,     KC_S,  KC_MINS,
-  LT(_MOUSE, KC_RBRC),  KC_B, KC_M,  KC_W,    KC_V,     KC_Z,  KC_RSPC,
-                              RAISE, KC_LEFT, KC_DOWN,  KC_UP, KC_RGHT,
+  KC_EQUAL,             KC_6, KC_7,  KC_8,    KC_9,     KC_0, KC_BSLS,
+  TG(_NUM),             KC_F, KC_G,  KC_C,    KC_R,     KC_L, KC_SLSH,
+                        KC_D, KC_H,  KC_T,    KC_N,     KC_S, KC_MINS,
+  LT(_MOUSE, KC_RBRC),  KC_B, KC_M,  KC_W,    KC_V,     KC_Z, KC_RSPC,
+                              RAISE, KC_DOWN, KC_UP, KC_LALT, KC_RCTL,
 
-  OSM_RALT,   OSM_RCTL,
+  KC_PGDN,    KC_PGUP,
   ALL_OFF,
   TT(_LOWER), KC_ENT,   KC_SPACE
 ),
@@ -277,11 +277,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------.           ,--------------------------------------------------.
  * |         |  F1  |  F2  |  F3  |  F4  |  F5  | F11  |           | F12  |  F6  |  F7  |  F8  |  F9  | F10  |        |
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |         |PrScr |      |CPgUp |      | App  |      |           |      |      |      |CapsLk|      |C-A-D |        |
+ * |         |PrScr |      |CPgUp |      | App  |      |           |      |      | Home |  Up  | PgUp |C-A-D |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |ScrLk | Back |CPgDn | Fwd  | Ins  |------|           |------| Left | Down |  Up  |Right |KVMSW1|        |
+ * |         |ScrLk | Back |CPgDn | Fwd  | Ins  |------|           |------|      | Left | Down |Right |KVMSW1|        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |Pause |      |      |      |      |      |           |      | Home | PgDn | PgUp | End  |KVMSW2|        |
+ * |         |Pause |      |      |      |CapsLk|      |           |      |      | End  |      | PgDn |KVMSW2|        |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |       |      |      |      |      |                                       |      |      |      |      |      |
  *   `-----------------------------------'                                       `----------------------------------'
@@ -298,7 +298,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_F1,   KC_F2,   KC_F3,         KC_F4,   KC_F5,   KC_F11,
   _______, KC_PSCR, _______, LCTL(KC_PGUP), _______, KC_APP,  _______,
   _______, KC_SLCK, KC_WBAK, LCTL(KC_PGDN), KC_WFWD, KC_INS,
-  _______, KC_PAUS, _______, _______,       _______,  _______, _______,
+  _______, KC_PAUS, _______, _______,       _______, KC_CAPS, _______,
   _______, _______, _______, _______,       _______,
 
                                                _______, _______,
@@ -307,9 +307,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // right hand
   KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,      _______,
-  _______, _______, _______, KC_CAPS, _______, LCA(KC_DEL), _______,
-           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KVMSWP1,     _______,
-  _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KVMSWP2,     _______,
+  _______, _______, KC_HOME, KC_UP,   KC_PGUP, LCA(KC_DEL), _______,
+           _______, KC_LEFT, KC_DOWN, KC_RGHT, KVMSWP1,     _______,
+  _______, _______, KC_END,  _______, KC_PGDN, KVMSWP2,     _______,
                     _______, _______, _______, _______,     _______,
 
   _______, _______,
