@@ -1,1 +1,2 @@
 KEY_LOCK_ENABLE = yes
+COMMAND_ENABLE = no
