@@ -61,6 +61,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_ALL_OFF:
             layer_clear();
+            userspace_config.raw = 0;
             return false;
             break;
         case KC_KVMSWP1:
