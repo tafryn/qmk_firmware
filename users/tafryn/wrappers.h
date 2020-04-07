@@ -1,6 +1,7 @@
 #pragma once
+#include "tafryn.h"
 
-#define LAYOUT_ergodox_wrapper(...)  LAYOUT_ergodox(__VA_ARGS__)
+#define LAYOUT_ergodox_wrapper(...)         LAYOUT_ergodox(__VA_ARGS__)
 #define LAYOUT_ergodox_pretty_wrapper(...)  LAYOUT_ergodox_pretty(__VA_ARGS__)
 
 #define ________________BLANK_____________________    _______,    _______,    _______,    _______,    _______
@@ -62,13 +63,9 @@
 #define ________________ADJUST_L2_________________    BL_STEP,    BL_DEC,     BL_TOGG,    BL_INC,     BL_BRTG
 #define ________________ADJUST_L3_________________    RGB_HUD,    RGB_SAD,    RGB_SPD,    RGB_VAD,    RGB_RMOD
 
-#define ________________ADJUST_R1_________________    KC_RESET,   ________,   ________,   ________,   KC_VERSION
+#define ________________ADJUST_R1_________________    RESET,      ________,   KC_EPRM,    ________,   KC_VERSION
 #define ________________ADJUST_R2_________________    ________,   KC_QWERTY,  KC_DVORAK,  KC_COLEMAK, KC_WORKMAN
 #define ________________ADJUST_R3_________________    KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPLY,    KC_MNXT
-
-#define ________________NUMPAD_L1_________________    ________,   ________,   ________,   ________,   ________
-#define ________________NUMPAD_L2_________________    ________,   ________,   ________,   ________,   ________
-#define ________________NUMPAD_L3_________________    ________,   ________,   ________,   ________,   ________
 
 #define ________________NUMPAD_R0_________________    ________,   KC_NUMLOCK, KC_PSLS,    KC_PAST,    KC_KP_MINUS
 #define ________________NUMPAD_R1_________________    ________,   KC_KP_7,    KC_KP_8,    KC_KP_9,    KC_KP_PLUS
@@ -76,16 +73,18 @@
 #define ________________NUMPAD_R3_________________    ________,   KC_KP_1,    KC_KP_2,    KC_KP_3,    KC_KP_ENTER
 #define ________________NUMPAD_R4_________________                KC_KP_0,    KC_KP_0,    KC_KP_DOT,  KC_KP_ENTER, ________
 
-#define ________________GAMEPAD_L0________________    KC_ESC,     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5
-#define ________________GAMEPAD_L1________________    KC_F1,      KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T
-#define ________________GAMEPAD_L2________________    KC_F2,      KC_G,       KC_A,       KC_S,       KC_D,       KC_F
-#define ________________GAMEPAD_L3________________    KC_F2,      KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_LALT
-#define ________________GAMEPAD_L4________________    KC_O,       KC_P,       KC_I,       KC_Y,       KC_LOWER
+#define _______________________GAMEPAD_L0_______________________  KC_ESC,     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5
+#define _______________________GAMEPAD_L1_______________________  KC_F1,      KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T
+#define _______________________GAMEPAD_L2_______________________  KC_F2,      KC_G,       KC_A,       KC_S,       KC_D,       KC_F
+#define _______________________GAMEPAD_L3_______________________  KC_F2,      KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_LALT
+#define _______________________GAMEPAD_L4_______________________  KC_F4,      KC_P,       KC_Y,       KC_I,       KC_LOWER
 
-#define ________________GAMEPAD_R1________________    ________,   ________,   ________,   ________,   ________
-#define ________________GAMEPAD_R2________________    ________,   ________,   ________,   ________,   ________
-#define ________________GAMEPAD_R3________________    ________,   ________,   ________,   ________,   ________
+#define _____GAMEPAD_THUMB_L______  KC_LCTL, KC_B, \
+                                             KC_O, \
+                          KC_SPACE,    KC_H, KC_M
 
+#define ________________DOX_L4____________________    OS_LCTL,    OS_LALT,    KC_LEFT,    KC_RIGHT,   KC_LOWER
+#define ________________DOX_R4____________________    KC_RAISE,   KC_DOWN,    KC_UP,      KC_RALT,    KC_RCTL
 #define ________________DOXTHUMBS_________________                KC_HOME,    KC_END,     KC_PGDN,    KC_PGUP, \
-                                                                              KC_LOCK,    KC_ALL_OFF, \
-                                                      KC_BSPC,    KC_LGUI,    TT(_RAISE), TT(_LOWER), KC_ENT,     KC_SPACE
+                                                                              TG_GAME,    KC_ALL_OFF, \
+                                                      KC_BSPC,    KC_LGUI,    TT(_RAISE), TT(_LOWER), KC_ENT,  KC_SPACE

@@ -1,0 +1,11 @@
+#pragma once
+
+#define PERMISSIVE_HOLD
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 300
+
+#ifdef IGNORE_MOD_TAP_INTERRUPT
+#    undef IGNORE_MOD_TAP_INTERRUPT
+#endif
+
