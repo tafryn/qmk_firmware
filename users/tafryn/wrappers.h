@@ -53,7 +53,7 @@
 
 #define ________________RAISE_L1__________________    KC_PSCREEN, KC_WBAK,    KC_UP,      KC_WFWD,    KC_APP
 #define ________________RAISE_L2__________________    KC_SLCK,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_CAPS
-#define ________________RAISE_L3__________________    KC_PAUSE,   ________,   ________,   ________,   ________
+#define ________________RAISE_L3__________________    KC_PAUSE,   ________,   ________,   ________,   KC_LOCK
 
 #define ________________RAISE_R1__________________    KC_INSERT,  C(KC_PGUP), KC_PGUP,    C(KC_PGDN), G(KC_L)
 #define ________________RAISE_R2__________________    KC_DELETE,  KC_HOME,    KC_PGDOWN,  KC_END,     KC_KVMSWP1
