@@ -55,8 +55,8 @@
 #define ________________RAISE_L2__________________    KC_SLCK,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_CAPS
 #define ________________RAISE_L3__________________    KC_PAUSE,   ________,   ________,   ________,   KC_LOCK
 
-#define ________________RAISE_R1__________________    KC_INSERT,  C(KC_PGUP), KC_PGUP,    C(KC_PGDN), G(KC_L)
-#define ________________RAISE_R2__________________    KC_DELETE,  KC_HOME,    KC_PGDOWN,  KC_END,     KC_KVMSWP1
+#define ________________RAISE_R1__________________    KC_INSERT,  KC_HOME,    KC_PGUP,    KC_END,     G(KC_L)
+#define ________________RAISE_R2__________________    KC_DELETE,  C(KC_PGUP), KC_PGDOWN,  C(KC_PGDN), KC_KVMSWP1
 #define ________________RAISE_R3__________________    ________,   ________,   ________,   ________,   KC_KVMSWP2
 
 #define ________________ADJUST_L1_________________    RGB_HUI,    RGB_SAI,    RGB_TOG,    RGB_VAI,    RGB_MOD
