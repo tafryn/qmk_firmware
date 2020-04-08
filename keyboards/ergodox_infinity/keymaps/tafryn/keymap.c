@@ -287,18 +287,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 
-/**
- * Runs just one time when the keyboard initializes.
- */
-void matrix_init_user(void){
-
-};
-
-/**
- * Runs constantly in the background, in a loop.
- */
-void matrix_scan_user(void) {
-    uint8_t layer = biton32(layer_state);
+layer_state_t layer_state_set_keymap(layer_state_t state) {
+    uint8_t layer = biton32(state);
 
     ergodox_board_led_off();
     ergodox_led_lower_off();
@@ -316,4 +306,6 @@ void matrix_scan_user(void) {
             ergodox_led_adjust_on();
             break;
     }
-};
+
+    return state;
+}
