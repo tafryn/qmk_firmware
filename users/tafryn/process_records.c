@@ -25,40 +25,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
-        case KC_LOWER:
-            if (record->event.pressed) {
-                layer_on(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-                if (IS_LAYER_ON(_ADJUST)) {
-                    layer_off(_LOWER);
-                    layer_off(_RAISE);
-                }
-            } else {
-                layer_off(_LOWER);
-                if (IS_LAYER_ON(_ADJUST)) {
-                    layer_off(_ADJUST);
-                    layer_on(_RAISE);
-                }
-            }
-            return false;
-            break;
-        case KC_RAISE:
-            if (record->event.pressed) {
-                layer_on(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-                if (IS_LAYER_ON(_ADJUST)) {
-                    layer_off(_RAISE);
-                    layer_off(_LOWER);
-                }
-            } else {
-                layer_off(_RAISE);
-                if (IS_LAYER_ON(_ADJUST)) {
-                    layer_off(_ADJUST);
-                    layer_on(_LOWER);
-                }
-            }
-            return false;
-            break;
         case KC_ALL_OFF:
             layer_clear();
             userspace_config.raw = 0;

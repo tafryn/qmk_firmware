@@ -7,8 +7,6 @@ enum custom_keycodes {
     KC_DVORAK,
     KC_COLEMAK,
     KC_WORKMAN,
-    KC_LOWER,
-    KC_RAISE,
     KC_EPRM,
     KC_VERSION,
     KC_ALL_OFF,

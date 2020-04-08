@@ -83,8 +83,8 @@
                                              KC_O, \
                           KC_SPACE,    KC_H, KC_M
 
-#define ________________DOX_L4____________________    OS_LCTL,    OS_LALT,    KC_LEFT,    KC_RIGHT,   KC_LOWER
-#define ________________DOX_R4____________________    KC_RAISE,   KC_DOWN,    KC_UP,      KC_RALT,    KC_RCTL
+#define ________________DOX_L4____________________    OS_LCTL,    OS_LALT,    KC_LEFT,    KC_RIGHT,   MO(_LOWER)
+#define ________________DOX_R4____________________    MO(_RAISE), KC_DOWN,    KC_UP,      KC_RALT,    KC_RCTL
 #define ________________DOXTHUMBS_________________                KC_HOME,    KC_END,     KC_PGDN,    KC_PGUP, \
                                                                               TG_GAME,    KC_ALL_OFF, \
                                                       KC_BSPC,    KC_LGUI,    TT(_RAISE), TT(_LOWER), KC_ENT,  KC_SPACE

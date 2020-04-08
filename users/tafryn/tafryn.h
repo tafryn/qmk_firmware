@@ -15,3 +15,5 @@ enum custom_layers {
     _RAISE,
     _ADJUST,
 };
+
+layer_state_t layer_state_set_keymap(layer_state_t state);
