@@ -63,7 +63,7 @@
 #define ________________ADJUST_L2_________________    BL_STEP,    BL_DEC,     BL_TOGG,    BL_INC,     BL_BRTG
 #define ________________ADJUST_L3_________________    RGB_HUD,    RGB_SAD,    RGB_SPD,    RGB_VAD,    RGB_RMOD
 
-#define ________________ADJUST_R1_________________    RESET,      ________,   KC_EPRM,    ________,   KC_VERSION
+#define ________________ADJUST_R1_________________    RESET,      ________,   KC_EPRM,    KC_MAKE,    KC_VERSION
 #define ________________ADJUST_R2_________________    ________,   KC_QWERTY,  KC_DVORAK,  KC_COLEMAK, KC_WORKMAN
 #define ________________ADJUST_R3_________________    KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPLY,    KC_MNXT
 

@@ -54,6 +54,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
+        case KC_MAKE:
+            if (record->event.pressed) {
+                uint8_t temp_mod = get_mods();
+                uint8_t temp_osm = get_oneshot_mods();
+                clear_mods();
+                clear_oneshot_mods();
+                SEND_STRING("make " QMK_KEYBOARD ":" QMK_KEYMAP);
+                if ((temp_mod | temp_osm) & MOD_MASK_SHIFT) {
+                    SEND_STRING(":flash");
+                }
+                tap_code(KC_ENT);
+                set_mods(temp_mod);
+            }
+            return false;
+            break;
         case RGB_SLD:
             if (record->event.pressed) {
 #ifdef RGBLIGHT_ENABLE
@@ -63,5 +78,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
     }
-    return true;
+
+    return process_record_keymap(keycode, record);
 }

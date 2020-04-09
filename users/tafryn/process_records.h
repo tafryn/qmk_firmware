@@ -12,7 +12,9 @@ enum custom_keycodes {
     KC_ALL_OFF,
     KC_KVMSWP1,
     KC_KVMSWP2,
-    RGB_SLD
+    KC_MAKE,
+    RGB_SLD,
+    NEW_SAFE_RANGE
 };
 // clang-format on
 
@@ -31,10 +33,12 @@ enum custom_keycodes {
 typedef union {
     uint32_t raw;
     struct {
-        bool gamechat :1;
+        bool gamechat : 1;
     };
 } userspace_config_t;
 
 extern userspace_config_t userspace_config;
+
+__attribute__((weak)) bool process_record_keymap(uint16_t keycode, keyrecord_t *record) { return true; }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record);
