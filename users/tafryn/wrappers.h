@@ -1,8 +1,36 @@
 #pragma once
 #include "tafryn.h"
 
+#define LAYOUT_dactyl_pretty(\
+    L00, L01, L02, L03, L04, L05,                      R00, R01, R02, R03, R04, R05, \
+    L10, L11, L12, L13, L14, L15,                      R10, R11, R12, R13, R14, R15, \
+    L20, L21, L22, L23, L24, L25,                      R20, R21, R22, R23, R24, R25, \
+    L30, L31, L32, L33, L34, L35,                      R30, R31, R32, R33, R34, R35, \
+    L40, L41, L42, L43, L44,                                R41, R42, R43, R44, R45, \
+                                  L51, L52,  R53, R54,                               \
+                                       L53,  R52,                                    \
+                             L45, L55, L54,  R51, R50, R40                           \
+    )\
+    {\
+        { L00, L01, L02, L03, L04, L05 },     \
+        { L10, L11, L12, L13, L14, L15 },     \
+        { L20, L21, L22, L23, L24, L25 },     \
+        { L30, L31, L32, L33, L34, L35 },     \
+        { L40, L41, L42, L43, L44, L45 },     \
+        { KC_NO, L51, L52, L53, L54, L55 },   \
+\
+        { R00, R01, R02, R03, R04, R05 },    \
+        { R10, R11, R12, R13, R14, R15 },    \
+        { R20, R21, R22, R23, R24, R25 },    \
+        { R30, R31, R32, R33, R34, R35 },    \
+        { R40, R41, R42, R43, R44, R45 },    \
+        { R50, R51, R52, R53, R54, KC_NO }   \
+}
+
 #define LAYOUT_ergodox_wrapper(...)         LAYOUT_ergodox(__VA_ARGS__)
 #define LAYOUT_ergodox_pretty_wrapper(...)  LAYOUT_ergodox_pretty(__VA_ARGS__)
+#define LAYOUT_6x6_wrapper(...)             LAYOUT_6x6(__VA_ARGS__)
+#define LAYOUT_dactyl_pretty_wrapper(...)   LAYOUT_dactyl_pretty(__VA_ARGS__)
 
 #define ________________BLANK_____________________    _______,    _______,    _______,    _______,    _______
 
@@ -73,18 +101,30 @@
 #define ________________NUMPAD_R3_________________    ________,   KC_KP_1,    KC_KP_2,    KC_KP_3,    KC_KP_ENTER
 #define ________________NUMPAD_R4_________________                KC_KP_0,    KC_KP_0,    KC_KP_DOT,  KC_KP_ENTER, ________
 
-#define _______________________GAMEPAD_L0_______________________  KC_ESC,     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5
-#define _______________________GAMEPAD_L1_______________________  KC_F1,      KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T
-#define _______________________GAMEPAD_L2_______________________  KC_F2,      KC_G,       KC_A,       KC_S,       KC_D,       KC_F
-#define _______________________GAMEPAD_L3_______________________  KC_F3,      KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_LALT
-#define _______________________GAMEPAD_L4_______________________  KC_F4,      KC_P,       KC_Y,       KC_I,       MO(_LOWER)
+#define ________________GAMEPAD_L0________________    KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4
+#define ________________GAMEPAD_L1________________    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R
+#define ________________GAMEPAD_L2________________    KC_G,       KC_A,       KC_S,       KC_D,       KC_F
+#define ________________GAMEPAD_L3________________    KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V
+#define ________________GAMEPAD_L4________________    KC_F4,      KC_P,       KC_Y,       KC_I,       MO(_LOWER)
 
-#define _____GAMEPAD_THUMB_L______  KC_LCTL, KC_B, \
-                                             KC_O, \
-                          KC_SPACE,    KC_H, KC_M
+#define GP_LL0 KC_ESC
+#define GP_LL1 KC_F1
+#define GP_LL2 KC_F2
+#define GP_LL3 KC_F3
+#define GP_LL4 KC_F4
 
-#define ________________DOX_L4____________________    OS_LCTL,    OS_LALT,    KC_LEFT,    KC_RIGHT,   MO(_LOWER)
-#define ________________DOX_R4____________________    MO(_RAISE), KC_DOWN,    KC_UP,      KC_RALT,    KC_RCTL
+#define GP_LR0 KC_5
+#define GP_LR1 KC_T
+#define GP_LR3 KC_LALT
+
+#define ________________GP_DOXTHUMBS______________                KC_LCTL,    KC_B,       ________,   ________, \
+                                                                              KC_O,       ________, \
+                                                      KC_SPACE,   KC_H,       KC_M,       ________,   ________,    ________
+
 #define ________________DOXTHUMBS_________________                KC_HOME,    KC_END,     KC_PGDN,    KC_PGUP, \
                                                                               TG_GAME,    KC_ALL_OFF, \
                                                       KC_BSPC,    KC_LGUI,    TT(_RAISE), TT(_LOWER), KC_ENT,  KC_SPACE
+
+#define ________________DOX_L4____________________    OS_LCTL,    OS_LALT,    KC_LEFT,    KC_RIGHT,   MO(_LOWER)
+#define ________________DOX_R4____________________    MO(_RAISE), KC_DOWN,    KC_UP,      KC_RALT,    KC_RCTL
+
