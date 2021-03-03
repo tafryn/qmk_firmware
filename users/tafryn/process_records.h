@@ -18,7 +18,9 @@ enum custom_keycodes {
 };
 // clang-format on
 
-#define TG_GAME TG(_GAMEPAD)
+#define TG_GAME  TG(_GAMEPAD)
+#define LTR_HOME LT(_RAISE, KC_HOME)
+#define LTL_PGUP LT(_LOWER, KC_PGUP)
 
 #define OS_LCTL OSM(MOD_LCTL)
 #define OS_LALT OSM(MOD_LALT)

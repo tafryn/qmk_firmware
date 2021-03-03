@@ -121,10 +121,10 @@
                                                                               KC_O,       ________, \
                                                       KC_SPACE,   KC_H,       KC_M,       ________,   ________,    ________
 
-#define ________________DOXTHUMBS_________________                KC_HOME,    KC_END,     KC_PGDN,    KC_PGUP, \
-                                                                              TG_GAME,    KC_ALL_OFF, \
-                                                      KC_BSPC,    KC_LGUI,    TT(_RAISE), TT(_LOWER), KC_ENT,  KC_SPACE
+#define ________________DOXTHUMBS_________________                LTR_HOME,   KC_END,     KC_PGDN,    LTL_PGUP, \
+                                                                              TG_GAME,    TG(_NUM), \
+                                                      KC_BSPC,    KC_LGUI,    KC_ESC,     KC_ALL_OFF, KC_ENT,      KC_SPACE
 
-#define ________________DOX_L4____________________    OS_LCTL,    OS_LALT,    KC_LEFT,    KC_RIGHT,   MO(_LOWER)
-#define ________________DOX_R4____________________    MO(_RAISE), KC_DOWN,    KC_UP,      KC_RALT,    KC_RCTL
+#define ________________DOX_L4____________________    OS_LCTL,    OS_LALT,    KC_LEFT,    KC_RIGHT,   TT(_LOWER)
+#define ________________DOX_R4____________________    TT(_RAISE), KC_DOWN,    KC_UP,      KC_RALT,    KC_RCTL
 
