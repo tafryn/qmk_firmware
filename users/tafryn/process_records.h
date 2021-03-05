@@ -18,16 +18,16 @@ enum custom_keycodes {
 };
 // clang-format on
 
-#define TG_GAME  TG(_GAMEPAD)
-#define LTR_HOME LT(_RAISE, KC_HOME)
-#define LTL_PGUP LT(_LOWER, KC_PGUP)
+#define TG_GAME     TG(_GAMEPAD)
+#define LTR_HOME    LT(_RAISE, KC_HOME)
+#define LTL_PGUP    LT(_LOWER, KC_PGUP)
 
-#define OS_LCTL OSM(MOD_LCTL)
-#define OS_LALT OSM(MOD_LALT)
-#define OS_LGUI OSM(MOD_LGUI)
-#define OS_RCTL OSM(MOD_RCTL)
-#define OS_RALT OSM(MOD_RALT)
-#define OS_RGUI OSM(MOD_RGUI)
+#define OS_LCTL     OSM(MOD_LCTL)
+#define OS_LALT     OSM(MOD_LALT)
+#define OS_LGUI     OSM(MOD_LGUI)
+#define OS_RCTL     OSM(MOD_RCTL)
+#define OS_RALT     OSM(MOD_RALT)
+#define OS_RGUI     OSM(MOD_RGUI)
 
 #define _______ KC_TRNS
 #define ________ KC_TRNS
