@@ -16,11 +16,16 @@ enum custom_keycodes {
     RGB_SLD,
     NEW_SAFE_RANGE
 };
-// clang-format on
 
 #define TG_GAME     TG(_GAMEPAD)
-#define LTR_HOME    LT(_RAISE, KC_HOME)
-#define LTL_PGUP    LT(_LOWER, KC_PGUP)
+#define CTL_HOME    MT(MOD_LCTL, KC_HOME)
+#define ALT_END     MT(MOD_LCTL, KC_END)
+#define CTL_PGUP    MT(MOD_RCTL, KC_PGUP)
+#define ALT_PGDN    MT(MOD_RCTL, KC_PGDN)
+#define LTL_DOWN    LT(_LOWER, KC_DOWN)
+#define LTR_UP      LT(_RAISE, KC_UP)
+#define LTL_RIGHT   LT(_LOWER, KC_RIGHT)
+#define LTR_LEFT    LT(_RAISE, KC_LEFT)
 
 #define OS_LCTL     OSM(MOD_LCTL)
 #define OS_LALT     OSM(MOD_LALT)
@@ -29,8 +34,10 @@ enum custom_keycodes {
 #define OS_RALT     OSM(MOD_RALT)
 #define OS_RGUI     OSM(MOD_RGUI)
 
-#define _______ KC_TRNS
-#define ________ KC_TRNS
+#define _______     KC_TRNS
+#define ________    KC_TRNS
+
+// clang-format on
 
 typedef union {
     uint32_t raw;

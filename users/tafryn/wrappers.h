@@ -1,6 +1,8 @@
 #pragma once
 #include "tafryn.h"
 
+// clang-format off
+
 #define LAYOUT_dactyl_pretty(\
     L00, L01, L02, L03, L04, L05,                      R00, R01, R02, R03, R04, R05, \
     L10, L11, L12, L13, L14, L15,                      R10, R11, R12, R13, R14, R15, \
@@ -53,24 +55,24 @@
 /* Doxen Thumbs
  *
  *                                      ,-------------.  ,-------------.
- *                                      | Home | End  |  | PgDn | PgUp |
+ *                                      |C_Home|A_End |  |A_PgDn|C_PgUp|
  *                               ,------|------|------|  |------+------+------.
  *                               |      |      | GAME |  | NUM  |      |      |
  *                               |BkSpc | LGUI |------|  |------|Enter |Space |
  *                               |      |      | GEsc |  |ALLOFF|      |      |
  *                               `--------------------'  `--------------------'
  */
-#define ________________DOXTHUMBS_________________                LTR_HOME,   KC_END,     KC_PGDN,    LTL_PGUP, \
+#define ________________DOXTHUMBS_________________                CTL_HOME,   ALT_END,    ALT_PGDN,   CTL_PGUP, \
                                                                               TG_GAME,    TG(_NUM), \
                                                       KC_BSPC,    KC_LGUI,    KC_GESC,    KC_ALL_OFF, KC_ENT,      KC_SPACE
 
 /* Doxen Row 4
  *
- *  | OSM_C |OSM_A | Left |Right |LOWER |                              |RAISE | Down |  Up  | Alt  | Ctrl  |
+ *  | OSM_C |  `   |  =   |R_Rght|L_Left|                              |L_Down| R_Up |  [   |  ]   | OSM_C |
  *  `-----------------------------------'                              `-----------------------------------'
  */
-#define ________________DOX_L4____________________    OS_LCTL,    OS_LALT,    KC_LEFT,    KC_RIGHT,   TT(_LOWER)
-#define ________________DOX_R4____________________    TT(_RAISE), KC_DOWN,    KC_UP,      KC_RALT,    KC_RCTL
+#define ________________DOX_L4____________________    OS_LCTL,    KC_GRV,     KC_EQL,     LTR_LEFT,   LTL_RIGHT
+#define ________________DOX_R4____________________    LTL_DOWN,   LTR_UP,     KC_LBRC,    KC_RBRC,    OS_RCTL
 
 /* Layer 0: QWERTY w/ Row 0 Numbers
  *
