@@ -42,15 +42,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
-        case KC_EPRM:
-            if (record->event.pressed) {
-                eeconfig_init();
-            }
-            return false;
-            break;
         case KC_VERSION:
             if (record->event.pressed) {
-                SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+                SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION " On " QMK_BUILDDATE);
             }
             return false;
             break;

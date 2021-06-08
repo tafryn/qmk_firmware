@@ -17,22 +17,29 @@ enum custom_keycodes {
     NEW_SAFE_RANGE
 };
 
+// Shortened Aliases
 #define TG_GAME     TG(_GAMEPAD)
-#define CTL_HOME    MT(MOD_LCTL, KC_HOME)
-#define ALT_END     MT(MOD_LCTL, KC_END)
-#define CTL_PGUP    MT(MOD_RCTL, KC_PGUP)
-#define ALT_PGDN    MT(MOD_RCTL, KC_PGDN)
-#define LTL_DOWN    LT(_LOWER, KC_DOWN)
-#define LTR_UP      LT(_RAISE, KC_UP)
-#define LTL_RIGHT   LT(_LOWER, KC_RIGHT)
-#define LTR_LEFT    LT(_RAISE, KC_LEFT)
+#define LTR_ENTER   LT(_RAISE, KC_ENTER)
+#define LTL_TAB     LT(_LOWER, KC_TAB)
 
+// One-shot Mods
 #define OS_LCTL     OSM(MOD_LCTL)
 #define OS_LALT     OSM(MOD_LALT)
 #define OS_LGUI     OSM(MOD_LGUI)
 #define OS_RCTL     OSM(MOD_RCTL)
 #define OS_RALT     OSM(MOD_RALT)
 #define OS_RGUI     OSM(MOD_RGUI)
+
+// Low Row Mods (Dvorak)
+#define LALT_SCLN   LALT_T(KC_SCLN)
+#define LGUI_KC_Q   LGUI_T(KC_Q)
+#define LSFT_KC_J   LSFT_T(KC_J)
+#define LCTL_KC_K   LCTL_T(KC_K)
+
+#define RCTL_KC_M   RCTL_T(KC_M)
+#define RSFT_KC_W   RSFT_T(KC_W)
+#define RGUI_KC_V   RGUI_T(KC_V)
+#define RALT_KC_Z   RALT_T(KC_Z)
 
 #define _______     KC_TRNS
 #define ________    KC_TRNS
