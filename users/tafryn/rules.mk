@@ -3,4 +3,4 @@ SRC += process_records.c \
 
 RGBLIGHT_ENABLE ?= no
 
-KEY_LOCK_ENABLE = yes
+KEY_LOCK_ENABLE ?= yes
