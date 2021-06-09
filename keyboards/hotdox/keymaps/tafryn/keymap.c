@@ -5,7 +5,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_ergodox_pretty_wrapper(
-  KC_ESC,   ________________NUMBER_L__________________, KC_GRV, KC_MINS,  ________________NUMBER_R__________________, KC_EQUAL,
+  KC_GRV,   ________________NUMBER_L__________________, KC_GRV, KC_MINS,  ________________NUMBER_R__________________, KC_EQUAL,
   KC_TAB,   ________________QWERTY_L1_________________, KC_DEL, TG(_NUM), ________________QWERTY_R1_________________, KC_BSPACE,
   KC_LCTL,  ________________QWERTY_L2_________________,                   ________________QWERTY_R2_________________, KC_QUOTE,
   KC_LSFT,  ________________QWERTY_L3_________________, KC_LBRC, KC_RBRC, ________________QWERTY_R3_________________, KC_RSFT,
@@ -14,7 +14,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_DVORAK] = LAYOUT_ergodox_pretty_wrapper(
-  KC_ESC,   ________________NUMBER_L__________________, KC_GRV, KC_EQUAL, ________________NUMBER_R__________________, KC_BSLS,
+  KC_GRV,   ________________NUMBER_L__________________, KC_GRV, KC_EQUAL, ________________NUMBER_R__________________, KC_BSLS,
   KC_TAB,   ________________DVORAK_L1_________________, KC_DEL, TG(_NUM), ________________DVORAK_R1_________________, KC_SLASH,
   KC_LCTL,  ________________DVORAK_L2_________________,                   ________________DVORAK_R2_________________, KC_MINUS,
   KC_LSFT,  ________________DVORAK_L3_________________, KC_LBRC, KC_RBRC, ________________DVORAK_R3_________________, KC_RSFT,
@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_COLEMAK] = LAYOUT_ergodox_pretty_wrapper(
-  KC_ESC,   ________________NUMBER_L__________________, KC_GRV, KC_BSLS,  ________________NUMBER_R__________________, KC_EQUAL,
+  KC_GRV,   ________________NUMBER_L__________________, KC_GRV, KC_BSLS,  ________________NUMBER_R__________________, KC_EQUAL,
   KC_TAB,   ________________COLEMAK_L1________________, KC_DEL, TG(_NUM), ________________COLEMAK_R1________________, KC_MINUS,
   KC_LCTL,  ________________COLEMAK_L2________________,                   ________________COLEMAK_R2________________, KC_QUOTE,
   KC_LSFT,  ________________COLEMAK_L3________________, KC_LBRC, KC_RBRC, ________________COLEMAK_R3________________, KC_RSFT,
@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_WORKMAN] = LAYOUT_ergodox_pretty_wrapper(
-  KC_ESC,   ________________NUMBER_L__________________, KC_MINS, KC_BSLS, ________________NUMBER_R__________________, KC_EQUAL,
+  KC_GRV,   ________________NUMBER_L__________________, KC_MINS, KC_BSLS, ________________NUMBER_R__________________, KC_EQUAL,
   KC_TAB,   ________________WORKMAN_L1________________, KC_DEL, TG(_NUM), ________________WORKMAN_R1________________, KC_BSPACE,
   KC_LCTL,  ________________WORKMAN_L2________________,                   ________________WORKMAN_R2________________, KC_QUOTE,
   KC_LSFT,  ________________WORKMAN_L3________________, KC_LBRC, KC_RBRC, ________________WORKMAN_R3________________, KC_RSFT,

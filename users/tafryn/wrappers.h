@@ -63,24 +63,24 @@
 /* Doxen Thumbs
  *
  *                                      ,-------------.  ,-------------.
- *                                      |TT(R) | Home |  | PgUp |TT(L) |
+ *                                      |MO(L) | Home |  | PgUp |MO(R) |
  *                               ,------|------|------|  |------+------+------.
  *                               |      |      | End  |  | PgDn |      |      |
- *                               |BkSpc |LTLTAB|------|  |------|LTRENT|Space |
+ *                               |BkSpc | Tab  |------|  |------|Enter |Space |
  *                               |      |      | GEsc |  |ALLOFF|      |      |
  *                               `--------------------'  `--------------------'
  */
-#define ________________DOXTHUMBS_________________                TT(_RAISE), KC_HOME,    KC_PGUP,    TT(_RAISE), \
+#define ________________DOXTHUMBS_________________                MO(_LOWER), KC_HOME,    KC_PGUP,    MO(_RAISE), \
                                                                                KC_END,    KC_PGDN, \
-                                                      KC_BSPC,    LTL_TAB,    KC_GESC,    KC_ALL_OFF, LTL_ENTER,   KC_SPACE
+                                                      KC_BSPC,    KC_TAB,     KC_GESC,    KC_ALL_OFF, KC_ENTER,    KC_SPACE
 
 /* Doxen Row 4
  *
  *  | TG(G) | Ins  | Del  | Right| Left |                              | Down |  Up  |  [   |  ]   | TG(N) |
  *  `-----------------------------------'                              `-----------------------------------'
  */
-#define ________________DOX_L4____________________    TG_GAME,    KC_INSERT,  KC_DELETE,  KC_LEFT,    KC_RIGHT
-#define ________________DOX_R4____________________    KC_DOWN,    KC_UP,      KC_LBRC,    KC_RBRC,    TG(_NUM)
+#define ________________DOX_L4____________________    TG_GAME,    KC_LBRC,    TT(_RAISE), KC_LEFT,    KC_RIGHT
+#define ________________DOX_R4____________________    KC_DOWN,    KC_UP,      TT(_LOWER), KC_RBRC,    TG(_NUM)
 
 /* QWERTY Layer w/ Row 0 Numbers
  *
@@ -185,18 +185,18 @@
  * ,-------------------------------------------.                ,-------------------------------------------.
  * |        |  !   |  @   |  #   |  $   |  %   |                |KVMSW1| Home |CapsLk| End  |PrScr |        |
  * |--------+------+------+------+------+------|                |------+------+------+------+------+--------|
- * |        |  ^   |  &   |  *   |  (   |  )   |                |KVMSW2|C-PgUp|  Up  |C-PgDn|ScrLk |        |
+ * |        |      |      |      |      |Insert|                |Delete|C-PgUp|  Up  |C-PgDn|ScrLk |        |
  * |--------+------+------+------+------+------|                |------+------+------+------+------+--------|
- * |        |      |      |      |      |  {   |                |  }   | Left | Down |Right |Pause |        |
+ * |        |  ^   |  &   |  *   |  (   |  )   |                |KVMSW2| Left | Down |Right |Pause |        |
  * `--------+------+------+------+------+------'                `------+------+------+------+------+--------'
  */
 #define ________________RAISE_L1__________________    ________________SYMB_L____________________
-#define ________________RAISE_L2__________________    ________________SYMB_R____________________
-#define ________________RAISE_L3__________________    ________,   ________,   ________,   ________,   KC_LCBR
+#define ________________RAISE_L2__________________    ________,   ________,   ________,   ________,   KC_INSERT
+#define ________________RAISE_L3__________________    ________________SYMB_R____________________
 
 #define ________________RAISE_R1__________________    KC_KVMSWP1, KC_HOME,    KC_CAPS,    KC_END,     KC_PSCREEN
-#define ________________RAISE_R2__________________    KC_KVMSWP2, C(KC_PGUP), KC_UP,      C(KC_PGDN), KC_SLCK
-#define ________________RAISE_R3__________________    KC_RCBR,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_PAUSE
+#define ________________RAISE_R2__________________    KC_DELETE,  C(KC_PGUP), KC_UP,      C(KC_PGDN), KC_SLCK
+#define ________________RAISE_R3__________________    KC_KVMSWP2, KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_PAUSE
 
 /* ADJUST Layer
  *

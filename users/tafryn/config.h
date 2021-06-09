@@ -15,5 +15,5 @@
 
 // Adjust the number of taps to toggle (default: 5)
 #undef TAPPING_TOGGLE
-#define TAPPING_TOGGLE 3
+#define TAPPING_TOGGLE 2
 
