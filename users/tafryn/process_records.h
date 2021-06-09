@@ -19,7 +19,7 @@ enum custom_keycodes {
 
 // Shortened Aliases
 #define TG_GAME     TG(_GAMEPAD)
-#define LTR_ENTER   LT(_RAISE, KC_ENTER)
+#define LTL_ENTER   LT(_LOWER, KC_ENTER)
 #define LTL_TAB     LT(_LOWER, KC_TAB)
 
 // One-shot Mods

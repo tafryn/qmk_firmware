@@ -70,9 +70,9 @@
  *                               |      |      | GEsc |  |ALLOFF|      |      |
  *                               `--------------------'  `--------------------'
  */
-#define ________________DOXTHUMBS_________________                TT(_RAISE), KC_HOME,    KC_PGUP,    TT(_LOWER), \
+#define ________________DOXTHUMBS_________________                TT(_RAISE), KC_HOME,    KC_PGUP,    TT(_RAISE), \
                                                                                KC_END,    KC_PGDN, \
-                                                      KC_BSPC,    LTL_TAB,    KC_GESC,    KC_ALL_OFF, LTR_ENTER,   KC_SPACE
+                                                      KC_BSPC,    LTL_TAB,    KC_GESC,    KC_ALL_OFF, LTL_ENTER,   KC_SPACE
 
 /* Doxen Row 4
  *
