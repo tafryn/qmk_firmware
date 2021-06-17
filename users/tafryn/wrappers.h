@@ -66,21 +66,21 @@
  *                                      |MO(L) | Home |  | PgUp |MO(R) |
  *                               ,------|------|------|  |------+------+------.
  *                               |      |      | End  |  | PgDn |      |      |
- *                               |BkSpc | Tab  |------|  |------|Enter |Space |
+ *                               |BkSpc | LGUI |------|  |------|Enter |Space |
  *                               |      |      | GEsc |  |ALLOFF|      |      |
  *                               `--------------------'  `--------------------'
  */
 #define ________________DOXTHUMBS_________________                MO(_LOWER), KC_HOME,    KC_PGUP,    MO(_RAISE), \
                                                                                KC_END,    KC_PGDN, \
-                                                      KC_BSPC,    KC_TAB,     KC_GESC,    KC_ALL_OFF, KC_ENTER,    KC_SPACE
+                                                      KC_BSPC,    KC_LGUI,    KC_GESC,    KC_ALL_OFF, KC_ENTER,    KC_SPACE
 
 /* Doxen Row 4
  *
- *  | TG(G) | Ins  | Del  | Right| Left |                              | Down |  Up  |  [   |  ]   | TG(N) |
+ *  | TG(G) |  [   | Right| Left |RAISE |                              |LOWER | Down |  Up  |  ]   | TG(N) |
  *  `-----------------------------------'                              `-----------------------------------'
  */
-#define ________________DOX_L4____________________    TG_GAME,    KC_LBRC,    TT(_RAISE), KC_LEFT,    KC_RIGHT
-#define ________________DOX_R4____________________    KC_DOWN,    KC_UP,      TT(_LOWER), KC_RBRC,    TG(_NUM)
+#define ________________DOX_L4____________________    TG_GAME,    KC_LBRC,    KC_LEFT,    KC_RIGHT,   TT(_RAISE)
+#define ________________DOX_R4____________________    TT(_LOWER), KC_DOWN,    KC_UP,      KC_RBRC,    TG(_NUM)
 
 /* QWERTY Layer w/ Row 0 Numbers
  *
